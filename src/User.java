@@ -1,13 +1,14 @@
-import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Enumeration;
 import java.util.Scanner;
+import java.io.*;
 
 public abstract class User {
 	private String name;
 	private String password;
 	private String role;
-	
+	private String DownLoad="e://my_work/download//";
+	private String UpLoad="e://my_work/upload//";
 	User(String name,String password,String role){
 		this.name=name;
 		this.password=password;
@@ -35,16 +36,36 @@ public abstract class User {
 	
 	public abstract void showMenu();
 	
-	public boolean downloadFile(String filename) throws IOException, SQLException{
+	public boolean downloadFile(){
 		
 		System.out.println("下载文件");
 		System.out.println("请输入你要下载的文件编号：");
 		Scanner in=new Scanner(System.in);
 		String id=in.next();
-		System.out.println("请输入要下载到的路径");
-		String path=in.next();
-		DataProcessing.searchDoc(id);
-		
+		try {
+			DataProcessing.searchDoc(id);
+		 
+		FileInputStream fis=new FileInputStream(UpLoad+DataProcessing.searchDoc(id).getFilename());
+		FileOutputStream fos=new FileOutputStream(DownLoad+DataProcessing.searchDoc(id).getFilename());
+		byte[] buf = new byte[1024];
+		int by = 0;
+		while ((by = fis.read(buf)) != -1) {
+		fos.write(buf, 0, by);}
+		fis.close();
+		fos.close();}
+		catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			this.downloadFile();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			this.downloadFile();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			this.downloadFile();
+		}
 		return true;
 	}
 	
@@ -87,5 +108,12 @@ public abstract class User {
 		this.role = role;
 	}
 	
+	public String getDownload(){
+		return DownLoad;
+	}
+	
+	public String getUpload(){
+		return UpLoad;
+	}
 
 }

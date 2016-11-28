@@ -23,9 +23,7 @@ public class Browser extends User{
 		// TODO Auto-generated method stub
 		Scanner in=new Scanner(System.in);
 		if(num==1){
-			System.out.println("请输入要下载的文件名称");
-			String filename=in.next();
-			super.downloadFile(filename);
+			super.downloadFile();
 		}
 		else if(num==2){
 			super.showFileList();

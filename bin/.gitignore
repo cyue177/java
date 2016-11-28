@@ -1,8 +1,3 @@
-/.project
-/.vscode/
-/Administrator.class
-/Browser.class
 /DataProcessing.class
-/Main.class
-/Operator.class
-/User.class
+/Doc.class
+/MainGui.class

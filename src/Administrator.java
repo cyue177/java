@@ -83,19 +83,7 @@ public class Administrator extends User{
 			}
 		}
 		if(num==5){
-			System.out.println("请输入要下载的文件：");
-			String file_name=in.next();
-			
-				try {
-					super.downloadFile(file_name);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-					this.runMenu(num);
-				}
-				
-			
-			
+				super.downloadFile();
 		}
 		if(num==6){
 			super.showFileList();
