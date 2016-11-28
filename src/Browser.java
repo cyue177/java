@@ -1,3 +1,5 @@
+import java.io.IOException;
+import java.sql.SQLException;
 import java.util.*;
 
 public class Browser extends User{
@@ -17,7 +19,7 @@ public class Browser extends User{
 		System.out.println("****************************\n«Î—°‘Ò≤Àµ•");
 	}
 
-	public void runMenu(int num) {
+	public void runMenu(int num) throws IOException, SQLException {
 		// TODO Auto-generated method stub
 		Scanner in=new Scanner(System.in);
 		if(num==1){

@@ -1,3 +1,5 @@
+import java.io.IOException;
+import java.sql.SQLException;
 import java.util.*;
 public class Operator extends User{
 
@@ -8,7 +10,6 @@ public class Operator extends User{
 
 	@Override
 	public void showMenu() {
-		// TODO Auto-generated method stub
 		System.out.println("***欢迎进入档案录入人员入口***");
 		System.out.println("1.下载文件"
 				+ "\n2.上传文件"
@@ -18,18 +19,31 @@ public class Operator extends User{
 		
 	}
 
-	public void runMenu(int num) {
-		// TODO Auto-generated method stub
+	public void runMenu(int num) throws SQLException{
 		Scanner in=new Scanner(System.in);
 		if(num==2){
 			System.out.println("请输入文件路径");
 			String file_name=in.next();
+			System.out.println("请输入文件编号");
+//			System.out.println("请输入创建者姓名");//??
+//			String creator=in.next();
+			System.out.println("描述");
+			String description=in.next();
+			System.out.println("请输入文件路径");
+//			System.out.println("");
+//			System.out.println("");
+			
 			System.out.println("上传文件... ...");
 		}
 		else if(num==1){
 			System.out.println("请输入你要下载的文件");
 			String filename=in.next();
-			super.downloadFile(filename);
+			try {
+				super.downloadFile(filename);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		else if(num==3){
 			super.showFileList();

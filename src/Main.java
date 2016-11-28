@@ -1,16 +1,21 @@
+import java.io.IOException;
+import java.sql.SQLException;
 import java.util.*;
 public class Main {
 
 	/**
 	 * @param args
+	 * @throws IOException 
+	 * @throws SQLException 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException, IOException {
 		// TODO Auto-generated method stub
+		
 		print();
 	}
 	
 	
-	public static void print(){
+	public static void print() throws SQLException, IOException{
 		String top="档案管理";
 		String tip_login="1.登陆系统";
 		String tip_logout="2.退出系统";
@@ -24,7 +29,7 @@ public class Main {
 			String temp1=in.next();
 			System.out.println("2.请输入你的密码");
 			String temp2=in.next();
-			User temp=DataProcessing.search(temp1, temp2);
+			User temp=DataProcessing.searchUser(temp1, temp2);
 			if(temp==null){
 				System.out.println("查无此人!");
 				System.exit(0);
