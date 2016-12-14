@@ -1,3 +1,4 @@
+package data;
 import java.sql.SQLException;
 import java.util.Enumeration;
 import java.util.Scanner;
@@ -7,8 +8,8 @@ public abstract class User {
 	private String name;
 	private String password;
 	private String role;
-	private String DownLoad="e://my_work/download//";
-	private String UpLoad="e://my_work/upload//";
+	private String DownLoad="e:/my_work/download/";
+	private String UpLoad="e:/my_work/upload/";
 	User(String name,String password,String role){
 		this.name=name;
 		this.password=password;

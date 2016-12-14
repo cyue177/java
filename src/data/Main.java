@@ -1,3 +1,4 @@
+package data;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.*;
@@ -34,7 +35,7 @@ public class Main {
 				System.out.println("查无此人!");
 				System.exit(0);
 				}
-			System.out.println(temp.getRole());
+			//System.out.println(temp.getRole());
 			int num_a,num_b,num_c;
 			if(temp.getRole()=="browser")
 			{
